@@ -1,0 +1,89 @@
+/* ==========================================================
+   tablet.css - Màn hình tablet và nhỏ hơn (tối đa 991.98px).
+   Chỉ ghi đè phần khác so với laptop.css. mobile.css (nạp sau) sẽ ghi đè tiếp cho màn nhỏ hơn.
+   Bootstrap Grid (col-md-*) lo việc chia cột, file này chỉnh khoảng cách, cỡ chữ, ảnh.
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .banner {
+    height: 280px;
+  }
+
+  .banner-name {
+    font-size: 30px;
+  }
+
+  /* Navbar: ẩn phần giữa (chỗ trống + ảnh cá nhân), chỉ còn các item chính */
+  .nav-gap,
+  .nav-avatar {
+    display: none;
+  }
+
+  .nav-item a {
+    padding: 0 18px;
+  }
+
+  /* Thông tin cá nhân: vẫn 2 cột 1 hàng, thu hẹp khoảng cách giữa cột và lề */
+  .info-col {
+    padding: 50px 24px 40px 28px;
+  }
+
+  .info-personal {
+    padding-left: 28px;
+  }
+
+  /* Thông tin nghề nghiệp: 2 cột (do col-md-6 của Bootstrap), nới độ rộng cho hợp màn hình */
+  .career {
+    margin: 40px auto;
+  }
+
+  /* Chứng chỉ: giữ layout 2 cột, ảnh co theo màn hình để không bị tràn */
+  .cert-item {
+    padding-right: 14px;
+  }
+
+  .cert-item:nth-child(even) {
+    padding-left: 14px;
+  }
+
+  .cert-img {
+    width: 40%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    margin-right: 14px;
+  }
+
+  .cert-title {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  /* Dự án: giữ 3 cột, thu nhỏ chữ/ảnh cho vừa màn hình */
+  .project-img {
+    height: 130px;
+  }
+
+  .project-title {
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+
+  .project-meta {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    padding: 10px 8px;
+  }
+
+  .meta-item {
+    margin-left: 0;
+    font-size: 11px;
+  }
+
+  .project-table td {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .project-table .label {
+    width: 64px;
+  }
+}

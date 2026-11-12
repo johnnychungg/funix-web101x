@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital CV - Chung Vi Thanh</title>
+
+    <!-- 1. Bootstrap 5.0 (CDN): dùng hệ thống Grid để chia cột theo từng kích thước màn hình -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- 2. CSS chia theo màn hình. Thứ tự quan trọng: laptop (nền) -> tablet -> mobile (ghi đè dần) -->
+    <link rel="stylesheet" href="./css/font.css" />
+    <link rel="stylesheet" href="./css/laptop.css" />
+    <link rel="stylesheet" href="./css/tablet.css" />
+    <link rel="stylesheet" href="./css/mobile.css" />
+  </head>
+  <body>
+    <!-- ===== Banner: ảnh position relative, chữ position absolute đè lên ảnh ===== -->
+    <header class="banner">
+      <img class="banner-img" src="./images/banner.jpg" alt="Ảnh banner" />
+      <div class="banner-text">
+        <h1 class="banner-name">Chung Vi Thanh</h1>
+        <p class="banner-job">Delivery Leader</p>
+      </div>
+    </header>
+
+    <!-- ===== Navbar: ảnh cá nhân tròn nằm giữa, đè lên banner ===== -->
+    <nav class="nav-bar">
+      <ul class="nav-list d-flex justify-content-center">
+        <li class="nav-item"><a href="#info">Thông tin <i class="icon-user"></i></a></li>
+        <li class="nav-item"><a href="#career">Lý lịch <i class="icon-doc-text-inv"></i></a></li>
+        <!-- Phần giữa Navbar (chỗ trống + ảnh cá nhân): tablet và mobile sẽ ẩn đi -->
+        <li class="nav-gap"></li>
+        <li class="nav-item"><a href="#certificate">Chứng chỉ <i class="icon-mail-alt"></i></a></li>
+        <li class="nav-item"><a href="#project">Dự án <i class="icon-star-1"></i></a></li>
+      </ul>
+      <img class="nav-avatar" src="./images/avatar.jpg" alt="Ảnh cá nhân" />
+    </nav>
+
+    <!-- ===== Thông tin cá nhân: Grid Bootstrap, laptop/tablet 2 cột, mobile mỗi phần một hàng ===== -->
+    <section class="info container-fluid p-0" id="info">
+      <div class="row g-0">
+        <div class="col-12 col-md-6 info-col info-goal">
+          <h2 class="heading">Mục tiêu nghề nghiệp</h2>
+          <p class="text">
+            Delivery leader với hơn 15 năm trong gia công phần mềm và phát triển sản phẩm, phụ trách khách hàng từ presales đến bàn giao.
+            Mong muốn dẫn dắt đội kỹ thuật giao sản phẩm chất lượng, cân bằng phạm vi, tiến độ và chi phí,
+            đồng thời ứng dụng AI vào phát triển phần mềm và quản lý đội ngũ.
+          </p>
+        </div>
+
+        <div class="col-12 col-md-6 info-col info-personal">
+          <h2 class="heading">Thông tin cá nhân</h2>
+
+          <!-- Container 1: form nhập email, hiện lúc đầu. Nhập đúng định dạng mới xem được thông tin -->
+          <div id="email-box">
+            <input
+              type="text"
+              id="email-input"
+              class="form-control"
+              placeholder="Enter email"
+              autocomplete="off"
+            />
+            <div id="email-error" class="invalid-feedback">Email không hợp lệ.</div>
+            <small class="form-text d-block">Hãy nhập email để xem thêm.</small>
+            <button type="button" id="email-submit" class="btn btn-primary btn-sm">Submit</button>
+          </div>
+
+          <!-- Container 2: thông tin cá nhân, ẩn lúc đầu (class hide) -->
+          <div id="personal-box" class="hide">
+            <p class="text"><b>Giới tính</b> : Nam</p>
+            <p class="text"><b>Ngày sinh</b> : 31/05/1990</p>
+            <p class="text"><b>Điện thoại</b> : 0772786111</p>
+            <p class="text"><b>Email</b> : contact@johnnychung.vip</p>
+            <p class="text"><b>Địa chỉ</b> : Hà Nội, Việt Nam</p>
+            <p class="text"><b>Website</b> : https://johnnychung.vip</p>
+            <p class="social">
+              <a href="https://www.linkedin.com/in/johnny-chung-59a68598/"><i class="icon-linkedin"></i></a>
+              <a href="mailto:contact@johnnychung.vip"><i class="icon-mail-alt"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Thông tin nghề nghiệp: laptop 3 cột, tablet 2 cột, mobile 1 cột =====
+         Lúc đầu chỉ hiện tiêu đề; hover hiện nút View More; click tiêu đề/nút để xem chi tiết (js/main.js) -->
+    <section class="career container" id="career">
+      <div class="row g-4 align-items-start">
+        <!-- Kinh nghiệm -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="career-item">
+            <div class="card-head">
+              <h2 class="card-title">Kinh nghiệm</h2>
+              <div class="card-icon"><i class="ic-toolbox"></i></div>
+            </div>
+            <button type="button" class="view-btn btn btn-primary btn-sm">View More</button>
+            <div class="career-detail hide">
+              <ul class="timeline">
+                <li>
+                  <h3 class="item-title">Head of Software Development &amp; Operations - FSEL</h3>
+                  <p class="item-date">02/2026 - <span class="tag-now">Hiện tại</span></p>
+                  <p class="item-desc">
+                    - Phụ trách quy trình delivery, CI/CD, chuẩn code review và độ ổn định sản phẩm cho khối kỹ thuật 27 nhân sự chính và 6 outsource.<br />
+                    - Báo cáo chỉ số kỹ thuật, rủi ro delivery và chi phí hạ tầng cho BOD.
+                  </p>
+                </li>
+                <li>
+                  <h3 class="item-title">Division Manager - CMC Global</h3>
+                  <p class="item-date">09/2025 - 11/2025</p>
+                  <p class="item-desc">
+                    - Phối hợp đội sales trong presales và bidding, đóng góp định hướng giải pháp và nhân sự cho đề xuất khách hàng.
+                  </p>
+                </li>
+                <li>
+                  <h3 class="item-title">Delivery Manager - TECHVIFY Software</h3>
+                  <p class="item-date">07/2022 - 08/2025</p>
+                  <p class="item-desc">
+                    - Quản lý đội đa chức năng hơn 60 thành viên trên nhiều dự án song song.<br />
+                    - Đưa đơn vị đạt Top Delivery Unit năm 2023 và 2024.
+                  </p>
+                </li>
+                <li>
+                  <h3 class="item-title">Co-Founder / CTO - Fujigo Software Solutions</h3>
+                  <p class="item-date">01/2020 - 06/2022</p>
+                  <p class="item-desc">
+                    - Xây đội kỹ thuật từ đầu, xây dựng chiến lược công nghệ và kiến trúc giải pháp.<br />
+                    - Quản lý delivery các dự án cho khách hàng Nhật Bản và quốc tế.
+                  </p>
+                </li>
+                <li>
+                  <h3 class="item-title">Technical Leader - FPT Software</h3>
+                  <p class="item-date">08/2018 - 12/2019</p>
+                  <p class="item-desc">
+                    - Dẫn dắt định hướng kỹ thuật, kiến trúc hệ thống cho khách hàng toàn cầu.
+                  </p>
+                </li>
+                <li>
+                  <h3 class="item-title">Senior Engineer - Hitachi Consulting (GCS)</h3>
+                  <p class="item-date">09/2016 - 08/2018</p>
+                  <p class="item-desc">
+                    - Dẫn dắt thiết kế và phát triển dịch vụ Business Intelligence.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Học vấn -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="career-item">
+            <div class="card-head">
+              <h2 class="card-title">Học vấn</h2>
+              <div class="card-icon"><i class="ic-pencil"></i></div>
+            </div>
+            <button type="button" class="view-btn btn btn-primary btn-sm">View More</button>
+            <div class="career-detail hide">
+              <ul class="timeline">
+                <li>
+                  <h3 class="item-title">FPT Aptech</h3>
+                  <p class="item-date">2008 - 2010</p>
+                  <p class="item-desc">- Higher Diploma, Software Engineering.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hoạt động -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="career-item">
+            <div class="card-head">
+              <h2 class="card-title">Hoạt động</h2>
+              <div class="card-icon"><i class="ic-toolbox"></i></div>
+            </div>
+            <button type="button" class="view-btn btn btn-primary btn-sm">View More</button>
+            <div class="career-detail hide">
+              <ul class="timeline">
+                <li>
+                  <h3 class="item-title">Top Delivery Unit - TECHVIFY</h3>
+                  <p class="item-date">2023 - 2024</p>
+                  <p class="item-desc">- Đơn vị đạt Top Delivery Unit hai năm liên tiếp.</p>
+                </li>
+                <li>
+                  <h3 class="item-title">Rising Star - TECHVIFY</h3>
+                  <p class="item-date">2023</p>
+                  <p class="item-desc">- Giải thưởng Rising Star của công ty.</p>
+                </li>
+                <li>
+                  <h3 class="item-title">Employee of the Division - Hitachi Consulting</h3>
+                  <p class="item-date">2016</p>
+                  <p class="item-desc">- Nhân viên xuất sắc của division.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sở thích: icon nằm trong vòng tròn, bên dưới là text -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="career-item">
+            <div class="card-head">
+              <h2 class="card-title">Sở thích</h2>
+              <div class="card-icon"><i class="ic-telescope"></i></div>
+            </div>
+            <button type="button" class="view-btn btn btn-primary btn-sm">View More</button>
+            <div class="career-detail hide">
+              <div class="hobby">
+                <div class="hobby-item">
+                  <span class="hobby-circle"><i class="ic-megaphone"></i></span>
+                  <span class="hobby-text">Viết blog</span>
+                </div>
+                <div class="hobby-item">
+                  <span class="hobby-circle"><i class="ic-strategy"></i></span>
+                  <span class="hobby-text">Tìm hiểu AI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ngôn ngữ: thang điểm 3 bậc (xanh = đạt, xám = chưa đạt) -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="career-item">
+            <div class="card-head">
+              <h2 class="card-title">Ngôn ngữ</h2>
+              <div class="card-icon"><i class="ic-mic"></i></div>
+            </div>
+            <button type="button" class="view-btn btn btn-primary btn-sm">View More</button>
+            <div class="career-detail hide">
+              <div class="level">
+                <h3 class="level-name">Tiếng Việt - Bản ngữ</h3>
+                <span class="bar on"></span><span class="bar on"></span><span class="bar on"></span>
+              </div>
+              <div class="level">
+                <h3 class="level-name">Tiếng Anh - Giao tiếp công việc</h3>
+                <span class="bar on"></span><span class="bar on"></span><span class="bar"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kỹ năng: thang điểm 3 bậc -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="career-item">
+            <div class="card-head">
+              <h2 class="card-title">Kỹ năng</h2>
+              <div class="card-icon"><i class="ic-tools"></i></div>
+            </div>
+            <button type="button" class="view-btn btn btn-primary btn-sm">View More</button>
+            <div class="career-detail hide">
+              <div class="level">
+                <h3 class="level-name">Delivery &amp; Presales: Advanced</h3>
+                <span class="bar on"></span><span class="bar on"></span><span class="bar on"></span>
+              </div>
+              <div class="level">
+                <h3 class="level-name">C# .NET, Java: Intermediate</h3>
+                <span class="bar on"></span><span class="bar on"></span><span class="bar"></span>
+              </div>
+              <div class="level">
+                <h3 class="level-name">AWS, Azure: Intermediate</h3>
+                <span class="bar on"></span><span class="bar on"></span><span class="bar"></span>
+              </div>
+              <div class="level">
+                <h3 class="level-name">HTML/CSS: Fundamental</h3>
+                <span class="bar on"></span><span class="bar"></span><span class="bar"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Chứng chỉ - Giải thưởng: laptop/tablet 2 cột (border #d6c08d), mobile 1 cột ===== -->
+    <section class="certificate" id="certificate">
+      <div class="container">
+        <h2 class="heading">Chứng chỉ - Giải thưởng</h2>
+        <div class="row g-0 cert-grid">
+          <div class="col-12 col-md-6 cert-item">
+            <img class="cert-img" src="./images/Cert_WEB.png" alt="Chứng chỉ" />
+            <div class="cert-info">
+              <h3 class="cert-title">PMP - Project Management Professional</h3>
+              <p class="text">- Chứng chỉ của PMI</p>
+              <p class="text">- Năm 2017</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 cert-item">
+            <img class="cert-img" src="./images/Cert_PRF.png" alt="Chứng chỉ" />
+            <div class="cert-info">
+              <h3 class="cert-title">Azure Developer Associate - Microsoft</h3>
+              <p class="text">- Chứng chỉ của Microsoft</p>
+              <p class="text">- Năm 2019</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 cert-item">
+            <img class="cert-img" src="./images/Cert_DBI.png" alt="Giải thưởng" />
+            <div class="cert-info">
+              <h3 class="cert-title">Top Delivery Unit - TECHVIFY Software</h3>
+              <p class="text">- Giải thưởng đơn vị xuất sắc</p>
+              <p class="text">- Năm 2023, 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Dự án: laptop/tablet 3 cột, mobile 1 cột. Bấm tên dự án để mở trang Project Charter ===== -->
+    <section class="project" id="project">
+      <div class="container">
+        <h2 class="heading">Dự án</h2>
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <div class="project-card">
+              <a href="./project-charter-1.html"><img class="project-img" src="./images/project_1.png" alt="Dự án 1" /></a>
+              <h3 class="project-title"><a href="./project-charter-1.html">Nhà cung cấp năng lượng quốc gia (Singapore)</a></h3>
+              <div class="project-meta">
+                <span class="pill">2023</span>
+                <span class="meta-item"><i class="icon-user"></i>TECHVIFY</span>
+                <span class="meta-item"><i class="icon-lamp"></i>Squad Leader</span>
+              </div>
+              <table class="project-table">
+                <tr><td class="label">Mô tả</td><td>Dự án lĩnh vực năng lượng và tiện ích cho nhà cung cấp quốc gia, mô hình ODC, 24 thành viên.</td></tr>
+                <tr><td class="label">Nhiệm vụ</td><td>- Dẫn dắt squad <br />- Quản lý ODC, delivery</td></tr>
+                <tr><td class="label">Công nghệ</td><td>- Golang, Java, ReactJS</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="project-card">
+              <a href="./project-charter-2.html"><img class="project-img" src="./images/project_2.png" alt="Dự án 2" /></a>
+              <h3 class="project-title"><a href="./project-charter-2.html">Tập đoàn hạ tầng toàn cầu (Úc)</a></h3>
+              <div class="project-meta">
+                <span class="pill">2022</span>
+                <span class="meta-item"><i class="icon-user"></i>TECHVIFY</span>
+                <span class="meta-item"><i class="icon-lamp"></i>Solution Architect</span>
+              </div>
+              <table class="project-table">
+                <tr><td class="label">Mô tả</td><td>Dự án lĩnh vực xây dựng và hạ tầng cho tập đoàn toàn cầu, 3 thành viên.</td></tr>
+                <tr><td class="label">Nhiệm vụ</td><td>- Thiết kế kiến trúc cloud <br />- Định hướng kỹ thuật</td></tr>
+                <tr><td class="label">Công nghệ</td><td>- .NET Core, VueJS, AWS</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="project-card">
+              <a href="./project-charter-3.html"><img class="project-img" src="./images/project_3.png" alt="Dự án 3" /></a>
+              <h3 class="project-title"><a href="./project-charter-3.html">Thương mại điện tử và logistics (Nhật Bản)</a></h3>
+              <div class="project-meta">
+                <span class="pill">2022</span>
+                <span class="meta-item"><i class="icon-user"></i>TECHVIFY</span>
+                <span class="meta-item"><i class="icon-lamp"></i>Project Manager</span>
+              </div>
+              <table class="project-table">
+                <tr><td class="label">Mô tả</td><td>Dự án thương mại điện tử và logistics cho khách hàng Nhật Bản, 25 thành viên.</td></tr>
+                <tr><td class="label">Nhiệm vụ</td><td>- Quản lý dự án <br />- Kiểm soát phạm vi, tiến độ, chất lượng</td></tr>
+                <tr><td class="label">Công nghệ</td><td>- Python, ReactJS, Flutter, AWS</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer: icon cỡ theo %, căn giữa, dàn ngang ===== -->
+    <footer class="footer">
+      <a class="footer-link" href="https://johnnychung.vip"><i class="icon-user-1"></i>Website</a>
+      <a class="footer-link" href="https://www.linkedin.com/in/johnny-chung-59a68598/"><i class="icon-linkedin-circled"></i>Linkedin</a>
+      <a class="footer-link" href="mailto:contact@johnnychung.vip"><i class="icon-mail-alt"></i>Email</a>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>

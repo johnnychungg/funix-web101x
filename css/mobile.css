@@ -1,0 +1,135 @@
+/* ==========================================================
+   mobile.css - Màn hình điện thoại (tối đa 767.98px).
+   Nạp sau cùng nên ghi đè lên laptop.css và tablet.css.
+   Bootstrap Grid (col-12) đã đưa mọi khối về 1 cột, file này chỉnh phần còn lại.
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .banner {
+    height: 240px;
+  }
+
+  .banner-name {
+    font-size: 26px;
+  }
+
+  /* Navbar: các item xếp dọc (display: block), thu hẹp khoảng cách bằng padding/margin */
+  .nav-bar {
+    height: auto;
+    padding: 8px 20px;
+  }
+
+  .nav-list {
+    display: block !important; /* ghi đè d-flex của Bootstrap */
+  }
+
+  .nav-item {
+    display: block;
+    border-left: none;
+  }
+
+  .nav-item a {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    line-height: 38px;
+    font-size: 13px;
+  }
+
+  /* Trên mobile icon đứng trước chữ */
+  .nav-item i {
+    order: -1;
+    margin: 0 8px 0 0;
+  }
+
+  /* Thông tin cá nhân: mỗi phần một hàng */
+  .info-col,
+  .info-personal {
+    padding: 36px 24px;
+  }
+
+  .heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .info-goal .text {
+    max-width: none;
+  }
+
+  #email-box {
+    max-width: none;
+  }
+
+  /* Thông tin nghề nghiệp: 1 cột, trên màn cảm ứng không có hover nên nút View More luôn hiện */
+  .career {
+    margin: 30px auto;
+  }
+
+  .view-btn {
+    opacity: 1;
+  }
+
+  /* Chứng chỉ: 1 cột, ảnh trên chữ dưới, mỗi mục chỉ có border ở dưới */
+  .cert-item,
+  .cert-item:nth-child(even) {
+    display: block;
+    padding: 20px 0;
+    border-left: none;
+    border-bottom: 1px solid #e6a5a5;
+  }
+
+  .cert-item:last-child,
+  .cert-item:nth-last-child(2):nth-child(odd) {
+    border-bottom: 1px solid #e6a5a5; /* mobile: mục nào cũng có border dưới */
+  }
+
+  .cert-img {
+    width: 100%;
+    height: auto;
+    margin: 0 0 12px;
+  }
+
+  .cert-title {
+    font-size: 13px;
+  }
+
+  /* Dự án: 1 cột, bố cục meta xếp dọc theo thiết kế mobile */
+  .project-img {
+    height: auto;
+  }
+
+  .project-title {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .project-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .meta-item {
+    font-size: 14px;
+  }
+
+  .project-table td {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .project-table .label {
+    width: 80px;
+  }
+
+  /* Footer: icon cỡ theo % của chữ (kế thừa từ laptop.css), căn giữa; chỉ thu hẹp khoảng cách */
+  .footer-link {
+    margin: 0 10px;
+    font-size: 12px;
+  }
+
+  .footer-link i {
+    font-size: 200%;
+  }
+}
