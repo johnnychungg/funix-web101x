@@ -1,10 +1,8 @@
-# funix-web101x
-
 WEB101x_TX - Project (Bài tập lớn): Digital CV responsive
 Học viên: thanhcvFX01545
 
-Link website (GitHub Pages):
-[CHƯA CÓ - điền link sau khi đưa lên GitHub Pages]
+Link website:
+https://funix-ims101x.johnnychung.vip/
 
 Cấu trúc:
 - index.html                      : trang Digital CV
